@@ -4,14 +4,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Engine</groupId>
-    <artifactId>GrafkomA</artifactId>
+    <groupId>engine</groupId>
+    <artifactId>Grafkom2223</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <lwjgl.version>3.3.1</lwjgl.version>
         <joml.version>1.10.5</joml.version>
         <lwjgl3-awt.version>0.1.8</lwjgl3-awt.version>
@@ -19,7 +30,6 @@
         <steamworks4j-server.version>1.9.0</steamworks4j-server.version>
         <lwjgl.natives>natives-windows</lwjgl.natives>
     </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -392,5 +402,22 @@
             <artifactId>steamworks4j-server</artifactId>
             <version>${steamworks4j-server.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-assimp</artifactId>
+            <version>${lwjgl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-assimp</artifactId>
+            <version>${lwjgl.version}</version>
+            <classifier>${lwjgl.natives}</classifier>
+            <scope>runtime</scope>
+        </dependency>
+
+
     </dependencies>
+
+
 </project>
