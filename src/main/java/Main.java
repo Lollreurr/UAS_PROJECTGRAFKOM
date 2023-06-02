@@ -242,10 +242,10 @@ public class Main {
 
         float move = 1f;
 
-        if (window.isKeyPressed(GLFW_KEY_R)){
+        if (window.isKeyPressed(GLFW_KEY_Q)){
             camera.moveUp(move);
         }
-        if (window.isKeyPressed(GLFW_KEY_T)){
+        if (window.isKeyPressed(GLFW_KEY_E)){
             camera.moveDown(move);
         }
         if (window.isKeyPressed(GLFW_KEY_W)){
@@ -279,38 +279,38 @@ public class Main {
             window.getMouseInput().setScroll(new Vector2f());
         }
 
-        if (window.isKeyPressed(GLFW_KEY_LEFT)){
-            objects.get(0).translateObject(-0.05f, 0.0f, 0.0f);
-            setPos();
-        }
+//        if (window.isKeyPressed(GLFW_KEY_LEFT)){
+//            objects.get(0).translateObject(-0.05f, 0.0f, 0.0f);
+//            setPos();
+//        }
+//
+//        if (window.isKeyPressed(GLFW_KEY_RIGHT)){
+//            objects.get(0).translateObject(0.05f, 0.0f, 0.0f);
+//            setPos();
+//        }
+//
+//        if (window.isKeyPressed(GLFW_KEY_UP)){
+//            objects.get(0).translateObject(0.0f, 0.0f, -0.05f);
+//            setPos();
+//        }
+//
+//        if (window.isKeyPressed(GLFW_KEY_DOWN)){
+//            objects.get(0).translateObject(0.0f, 0.0f, 0.05f);
+//            setPos();
+//        }
+//
+//        if (window.isKeyPressed(GLFW_KEY_P)){
+//            objects.get(0).translateObject(0.0f, 0.05f, 0.0f);
+//            setPos();
+//        }
+//
+//        if (window.isKeyPressed(GLFW_KEY_O)){
+//            objects.get(0).translateObject(0.0f, -0.05f, 0.0f);
+//            setPos();
+//        }
 
-        if (window.isKeyPressed(GLFW_KEY_RIGHT)){
-            objects.get(0).translateObject(0.05f, 0.0f, 0.0f);
-            setPos();
-        }
 
-        if (window.isKeyPressed(GLFW_KEY_UP)){
-            objects.get(0).translateObject(0.0f, 0.0f, -0.05f);
-            setPos();
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_DOWN)){
-            objects.get(0).translateObject(0.0f, 0.0f, 0.05f);
-            setPos();
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_P)){
-            objects.get(0).translateObject(0.0f, 0.05f, 0.0f);
-            setPos();
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_O)){
-            objects.get(0).translateObject(0.0f, -0.05f, 0.0f);
-            setPos();
-        }
-
-
-
+        //muter camera
         if (window.isKeyPressed(GLFW_KEY_M)){
             pressed = true;
         }
@@ -332,6 +332,7 @@ public class Main {
             }
         }
 
+        //muter obj
         if (window.isKeyPressed(GLFW_KEY_B)){
             Vector3f pos = objects.get(0).model.transformPosition(new Vector3f());
             Vector3f posCam = camera.getPosition();
