@@ -39,14 +39,14 @@ public class Main {
 
         //code
 
-        ObjectLoader objectLoader = new ObjectLoader("D://semester 4//Grafika Komputer//uas//Grafkom2223//resources//models//MStad.obj", "obj");
+        ObjectLoader objectLoader = new ObjectLoader("resources/models/MStad.obj", "obj");
         objects.add(new Square(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData(
-                                "D://semester 4//Grafika Komputer//uas//Grafkom2223//resources//shaders//scene.vert"
+                                "resources/shaders/scene.vert"
                                 , GL_VERTEX_SHADER),
                         new ShaderProgram.ShaderModuleData(
-                                "D://semester 4//Grafika Komputer//uas//Grafkom2223//resources//shaders//scene.frag"
+                                "resources/shaders/scene.frag"
                                 , GL_FRAGMENT_SHADER)
                 ),
                 new ArrayList<>(

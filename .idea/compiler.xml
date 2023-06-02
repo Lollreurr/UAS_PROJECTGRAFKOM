@@ -6,11 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="UAS_PROJECTGRAFKOM" />
         <module name="Grafkom2223" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="UAS_PROJECTGRAFKOM" target="18" />
-    </bytecodeTargetLevel>
   </component>
 </project>
