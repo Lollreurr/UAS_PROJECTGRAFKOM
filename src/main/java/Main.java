@@ -340,9 +340,9 @@ public class Main {
             ArrayList<Vector3f> vertices = new ArrayList<>(List.of());
 
             for(double i=0;i<360;i+=360/360){
-                float x = (float)(pos.x + 1.5f*Math.sin(Math.toRadians(i)));
-                float z = (float)(pos.z + 1.5f*Math.cos(Math.toRadians(i)));
-                vertices.add(new Vector3f(x, pos.y+0.5f, z));
+                float x = (float)(pos.x + 55.5f*Math.sin(Math.toRadians(i)));
+                float z = (float)(pos.z + 55.5f*Math.cos(Math.toRadians(i)));
+                vertices.add(new Vector3f(x, pos.y+15.5f, z));
             }
 
             camera.setPosition(vertices.get(0).x, vertices.get(0).y, vertices.get(0).z);
