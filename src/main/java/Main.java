@@ -90,7 +90,10 @@ public class Main {
         ((Square)objects.get(1)).setNormal(mario.normals);
         ((Square)objects.get(1)).setIndicies(mario.indicies);
 
-        objects.get(1).scaleObject(0.00001f, 0.00001f,0.00001f);
+
+        objects.get(1).translateObject(60f, 0.0f,0.0f);
+        objects.get(1).scaleObject(0.01f, 0.01f,0.01f);
+
 
 
         //objects.get(0).scaleObject(0.005f, 0.005f,0.005f);
@@ -268,7 +271,7 @@ public class Main {
 //
 //        }
 
-        float move = 0.05f;
+        float move = 1f;
 
         if (window.isKeyPressed(GLFW_KEY_Q)){
             camera.moveUp(move);
