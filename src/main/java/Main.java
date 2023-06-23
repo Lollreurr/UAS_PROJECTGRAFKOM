@@ -39,7 +39,7 @@ public class Main {
 
         //code
 
-        ObjectLoader objectLoader = new ObjectLoader("resources/models/MStad.obj", "obj");
+        ObjectLoader objectLoader = new ObjectLoader("resources/models/Luigi_obj.obj", "obj");
         objects.add(new Square(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData(
