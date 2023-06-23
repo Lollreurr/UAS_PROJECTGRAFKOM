@@ -66,33 +66,6 @@ public class Main {
         objects.get(0).scaleObject(0.1f, 0.1f,0.1f);
 
 
-        ObjectLoader mario = new ObjectLoader("resources/models/mario-sculpture.obj", "obj");
-        objects.add(new Square(
-                Arrays.asList(
-                        new ShaderProgram.ShaderModuleData(
-                                "resources/shaders/scene.vert"
-                                , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData(
-                                "resources/shaders/scene.frag"
-                                , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                        List.of()
-                ),
-                new Vector4f(1.0f,1.0f,1.0f,1.0f),
-                new Vector3f(0.0f,0.0f,0.0f),
-                0.1f,
-                0.1f,
-                0.1f
-        ));
-
-        ((Square)objects.get(1)).setVertices(mario.vertices);
-        ((Square)objects.get(1)).setNormal(mario.normals);
-        ((Square)objects.get(1)).setIndicies(mario.indicies);
-
-        objects.get(1).scaleObject(0.00001f, 0.00001f,0.00001f);
-
-
         //objects.get(0).scaleObject(0.005f, 0.005f,0.005f);
 
 
@@ -268,7 +241,7 @@ public class Main {
 //
 //        }
 
-        float move = 0.05f;
+        float move = 1f;
 
         if (window.isKeyPressed(GLFW_KEY_Q)){
             camera.moveUp(move);
