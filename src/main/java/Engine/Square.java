@@ -6,6 +6,7 @@ import org.joml.Vector4f;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL15.*;
@@ -229,42 +230,48 @@ public class Square extends OOval{
                 GL_FLOAT,
                 false,
                 0, 0);
-        //directional Light
-        uniformsmap.setUniform("dirLight.direction", new Vector3f(-0.2f,-1.0f,-0.3f));
-        uniformsmap.setUniform("dirLight.ambient", new Vector3f(0.05f,0.05f,0.05f));
-        uniformsmap.setUniform("dirLight.diffuse", new Vector3f(0.4f,0.4f,0.4f));
-        uniformsmap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
-        //posisi pointLight
-        Vector3f[] _pointLightPositions = {
+//        uniformsmap.setUniform("lightColor", new Vector3f(1.0f, 1.0f, 0.0f));
+//        uniformsmap.setUniform("lightPos", new Vector3f(1.0f, 1.0f, 0.0f));
+
+        // directional light
+        uniformsmap.setUniform("dirLight.direction", new Vector3f(-0.2f, 1.0f, 0.3f));
+        uniformsmap.setUniform("dirLight.ambient", new Vector3f(0.05f, 0.05f, 0.05f));
+        uniformsmap.setUniform("dirLight.diffuse", new Vector3f(0.4f, 0.4f, 0.4f));
+        uniformsmap.setUniform("dirLight.specular", new Vector3f(0.5f, 0.5f, 0.5f));
+
+        // posisi pointLights
+        Vector3f[] _pointLightPositions =  {
                 new Vector3f(0.7f, 0.2f, 2.0f),
                 new Vector3f(2.3f, -3.3f, -4.0f),
                 new Vector3f(-4.0f, 2.0f, -12.0f),
                 new Vector3f(0.0f, 0.0f, -3.0f)
         };
-        for(int i = 0;i< _pointLightPositions.length;i++){
-            uniformsmap.setUniform("pointLights["+ i +"].position",_pointLightPositions[i]);
-            uniformsmap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.05f,0.05f,0.05f));
-            uniformsmap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
-            uniformsmap.setUniform("pointLights["+ i +"].specular", new Vector3f(1.0f,1.0f,1.0f));
-            uniformsmap.setUniform("pointLights["+ i +"].constant",1.0f );
-            uniformsmap.setUniform("pointLights["+ i +"].linear", 0.09f);
-            uniformsmap.setUniform("pointLights["+ i +"].quadratic", 0.032f);
 
+        for (int i=0; i<_pointLightPositions.length; i++){
+            uniformsmap.setUniform("pointLights["+i+"].position", _pointLightPositions[i]);
+            uniformsmap.setUniform("pointLights["+i+"].ambient", new Vector3f(0.05f, 0.05f, 0.05f));
+            uniformsmap.setUniform("pointLights["+i+"].diffuse", new Vector3f(0.8f, 0.8f, 0.8f));
+            uniformsmap.setUniform("pointLights["+i+"].specular", new Vector3f(1.0f, 1.0f, 1.0f));
+            uniformsmap.setUniform("pointLights["+i+"].constant", 1.0f);
+            uniformsmap.setUniform("pointLights["+i+"].linear", 0.09f);
+            uniformsmap.setUniform("pointLights["+i+"].quadratic", 0.032f);
         }
 
         //spotlight
-        uniformsmap.setUniform("spotLight.position",camera.getPosition());
-        uniformsmap.setUniform("spotLight.direction",camera.getDirection());
-        uniformsmap.setUniform("spotLight.ambient",new Vector3f(0.0f,0.0f,0.0f));
-        uniformsmap.setUniform("spotLight.diffuse",new Vector3f(1.0f,1.0f,1.0f));
-        uniformsmap.setUniform("spotLight.specular",new Vector3f(1.0f,1.0f,1.0f));
-        uniformsmap.setUniform("spotLight.constant",1.0f);
-        uniformsmap.setUniform("spotLight.linear",0.09f);
-        uniformsmap.setUniform("spotLight.quadratic",0.032f);
-        uniformsmap.setUniform("spotLight.cutOff",(float)Math.cos(Math.toRadians(12.5f)));
-        uniformsmap.setUniform("spotLight.outerCutOff",(float)Math.cos(Math.toRadians(12.5f)));
+        uniformsmap.setUniform("spotLight.position", camera.getPosition());
+        uniformsmap.setUniform("spotLight.direction", camera.getDirection());
+        uniformsmap.setUniform("spotLight.ambient", new Vector3f(0.0f, 0.0f, 0.0f));
+        uniformsmap.setUniform("spotLight.diffuse", new Vector3f(1.0f, 1.0f, 1.0f));
+        uniformsmap.setUniform("spotLight.specular", new Vector3f(1.0f, 1.0f, 1.0f));
+        uniformsmap.setUniform("spotLight.constant", 1.0f);
+        uniformsmap.setUniform("spotLight.linear", 0.09f);
+        uniformsmap.setUniform("spotLight.quadratic", 0.032f);
+        uniformsmap.setUniform("spotLight.cutOff", (float) Math.cos(Math.toRadians(12.5f)));
+        uniformsmap.setUniform("spotLight.outerCutOff", (float) Math.cos(Math.toRadians(12.5f)));
 
-        uniformsmap.setUniform("viewPos",camera.getPosition());
+
+        uniformsmap.setUniform("viewPos", camera.getPosition());
+
     }
 
     public void setNormal(List<Vector3f> normal) {
