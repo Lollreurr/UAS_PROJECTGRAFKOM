@@ -212,7 +212,7 @@ public class Square extends OOval{
         nbo = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, nbo);
         glBufferData(GL_ARRAY_BUFFER,
-                Utils.listoFloat(normal),
+                Utils.listoFloat(vertices),
                 GL_STATIC_DRAW);
 
 //        uniformsmap.createUniform("lightColor", new Vector3f(1.0f, 1.0f, 0.0f));

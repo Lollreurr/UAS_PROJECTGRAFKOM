@@ -34,12 +34,12 @@ public class Main {
         window.init();
         GL.createCapabilities();
 
-        camera.setPosition(0.0f, 0.0f, 1.5f);
+        camera.setPosition(0.0f, 0.8f, 1.5f);
         camera.setRotation(((float)Math.toRadians(0.0f)), ((float) Math.toRadians(0.0f)));
 
         //code
 
-        ObjectLoader objectLoader = new ObjectLoader("resources/models/mario-sculpture.obj", "obj");
+        ObjectLoader lapangan = new ObjectLoader("resources/models/MStad.obj", "obj");
         objects.add(new Square(
                 Arrays.asList(
                         new ShaderProgram.ShaderModuleData(
@@ -59,11 +59,39 @@ public class Main {
                 0.1f
         ));
 
-        ((Square)objects.get(0)).setVertices(objectLoader.vertices);
-        ((Square)objects.get(0)).setNormal(objectLoader.normals);
-        ((Square)objects.get(0)).setIndicies(objectLoader.indicies);
+        ((Square)objects.get(0)).setVertices(lapangan.vertices);
+        ((Square)objects.get(0)).setNormal(lapangan.normals);
+        ((Square)objects.get(0)).setIndicies(lapangan.indicies);
 
         objects.get(0).scaleObject(0.1f, 0.1f,0.1f);
+
+
+        ObjectLoader mario = new ObjectLoader("resources/models/mario-sculpture.obj", "obj");
+        objects.add(new Square(
+                Arrays.asList(
+                        new ShaderProgram.ShaderModuleData(
+                                "resources/shaders/scene.vert"
+                                , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData(
+                                "resources/shaders/scene.frag"
+                                , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                        List.of()
+                ),
+                new Vector4f(1.0f,1.0f,1.0f,1.0f),
+                new Vector3f(0.0f,0.0f,0.0f),
+                0.1f,
+                0.1f,
+                0.1f
+        ));
+
+        ((Square)objects.get(1)).setVertices(mario.vertices);
+        ((Square)objects.get(1)).setNormal(mario.normals);
+        ((Square)objects.get(1)).setIndicies(mario.indicies);
+
+        objects.get(1).scaleObject(0.00001f, 0.00001f,0.00001f);
+
 
         //objects.get(0).scaleObject(0.005f, 0.005f,0.005f);
 
@@ -240,7 +268,7 @@ public class Main {
 //
 //        }
 
-        float move = 1f;
+        float move = 0.05f;
 
         if (window.isKeyPressed(GLFW_KEY_Q)){
             camera.moveUp(move);
@@ -271,7 +299,7 @@ public class Main {
 
         if (window.getMouseInput().isLeftButtonPressed()){
             Vector2f displVec = window.getMouseInput().getDisplVec();
-            camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
+            camera.addRotation((float) Math.toRadians(displVec.x * 0.2f), (float) Math.toRadians(displVec.y * 0.2f));
         }
 
         if (window.getMouseInput().getScroll().y != 0){
