@@ -66,6 +66,8 @@ public class Main {
         objects.get(0).scaleObject(0.1f, 0.1f,0.1f);
 
 
+
+
         //objects.get(0).scaleObject(0.005f, 0.005f,0.005f);
 
 
@@ -203,9 +205,9 @@ public class Main {
         ArrayList<Vector3f> vertices = new ArrayList<>(List.of());
 
         for(double i=0;i<360;i+=360/360){
-            float x = (float)(pos.x + 50f*Math.sin(Math.toRadians(i)));
-            float z = (float)(pos.z + 50f*Math.cos(Math.toRadians(i)));
-            vertices.add(new Vector3f(x, pos.y, z));
+            float x = (float)(pos.x + 55f*Math.sin(Math.toRadians(i)));
+            float z = (float)(pos.z + 55f*Math.cos(Math.toRadians(i)));
+            vertices.add(new Vector3f(x, pos.y+13f, z));
         }
 
         camera.setPosition(vertices.get((int)rotation).x,vertices.get((int)rotation).y, vertices.get((int)rotation).z);
@@ -243,12 +245,6 @@ public class Main {
 
         float move = 1f;
 
-        if (window.isKeyPressed(GLFW_KEY_Q)){
-            camera.moveUp(move);
-        }
-        if (window.isKeyPressed(GLFW_KEY_E)){
-            camera.moveDown(move);
-        }
         if (window.isKeyPressed(GLFW_KEY_W)){
             camera.moveForward(move);
         }
@@ -263,16 +259,16 @@ public class Main {
             camera.moveRight(move);
         }
 
-//        if (window.isKeyPressed(GLFW_KEY_UP)){
-//            camera.moveUp(move);
-//        }
-//        else if (window.isKeyPressed(GLFW_KEY_DOWN)){
-//            camera.moveDown(move);
-//        }
+        if (window.isKeyPressed(GLFW_KEY_Q)){
+            camera.moveUp(move);
+        }
+        else if (window.isKeyPressed(GLFW_KEY_E)){
+            camera.moveDown(move);
+        }
 
         if (window.getMouseInput().isLeftButtonPressed()){
             Vector2f displVec = window.getMouseInput().getDisplVec();
-            camera.addRotation((float) Math.toRadians(displVec.x * 0.2f), (float) Math.toRadians(displVec.y * 0.2f));
+            camera.addRotation((float) Math.toRadians(displVec.x * 0.1f), (float) Math.toRadians(displVec.y * 0.1f));
         }
 
         if (window.getMouseInput().getScroll().y != 0){
@@ -280,38 +276,38 @@ public class Main {
             window.getMouseInput().setScroll(new Vector2f());
         }
 
-//        if (window.isKeyPressed(GLFW_KEY_LEFT)){
-//            objects.get(0).translateObject(-0.05f, 0.0f, 0.0f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_RIGHT)){
-//            objects.get(0).translateObject(0.05f, 0.0f, 0.0f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_UP)){
-//            objects.get(0).translateObject(0.0f, 0.0f, -0.05f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_DOWN)){
-//            objects.get(0).translateObject(0.0f, 0.0f, 0.05f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_P)){
-//            objects.get(0).translateObject(0.0f, 0.05f, 0.0f);
-//            setPos();
-//        }
-//
-//        if (window.isKeyPressed(GLFW_KEY_O)){
-//            objects.get(0).translateObject(0.0f, -0.05f, 0.0f);
-//            setPos();
-//        }
+        if (window.isKeyPressed(GLFW_KEY_LEFT)){
+            objects.get(0).translateObject(-0.001f, 0.0f, 0.0f);
+            setPos();
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_RIGHT)){
+            objects.get(0).translateObject(0.001f, 0.0f, 0.0f);
+            setPos();
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_UP)){
+            objects.get(0).translateObject(0.0f, 0.0f, -0.001f);
+            setPos();
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_DOWN)){
+            objects.get(0).translateObject(0.0f, 0.0f, 0.001f);
+            setPos();
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_P)){
+            objects.get(0).translateObject(0.0f, 0.001f, 0.0f);
+            setPos();
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_O)){
+            objects.get(0).translateObject(0.0f, -0.001f, 0.0f);
+            setPos();
+        }
 
 
-        //muter camera
+        float movee = 1f;
         if (window.isKeyPressed(GLFW_KEY_M)){
             pressed = true;
         }
@@ -322,10 +318,10 @@ public class Main {
             float posz = camera.getPosition().z;
 
             camera.setPosition(-posx, -posy, -posz);
-            camera.addRotation(0.0f, (float) Math.toRadians(move));
+            camera.addRotation(0.0f, (float) Math.toRadians(movee));
             camera.setPosition(posx, posy, posz);
 
-            rotation += move;
+            rotation += movee;
 
             if (rotation >= 360.0f){
                 rotation = 0.0f;
@@ -333,17 +329,17 @@ public class Main {
             }
         }
 
-        //muter obj
         if (window.isKeyPressed(GLFW_KEY_B)){
+            move = 1f;
             Vector3f pos = objects.get(0).model.transformPosition(new Vector3f());
             Vector3f posCam = camera.getPosition();
 
             ArrayList<Vector3f> vertices = new ArrayList<>(List.of());
 
             for(double i=0;i<360;i+=360/360){
-                float x = (float)(pos.x + 55.5f*Math.sin(Math.toRadians(i)));
-                float z = (float)(pos.z + 55.5f*Math.cos(Math.toRadians(i)));
-                vertices.add(new Vector3f(x, pos.y+15.5f, z));
+                float x = (float)(pos.x + 55f*Math.sin(Math.toRadians(i)));
+                float z = (float)(pos.z + 55f*Math.cos(Math.toRadians(i)));
+                vertices.add(new Vector3f(x, pos.y+13f, z));
             }
 
             camera.setPosition(vertices.get(0).x, vertices.get(0).y, vertices.get(0).z);
